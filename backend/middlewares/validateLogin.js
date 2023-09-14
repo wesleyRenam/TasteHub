@@ -3,10 +3,7 @@ const bcrypt = require('bcrypt')
 
 const validateRegister = async (req, res, next) => {
   const { email, password } = req.body;
-
   const user = await User.findOne({ email: email })
-
-  const checkPass = await bcrypt.compare(password, user.password)
 
   if (!email || !password) {
     return res.status(422).json({ message: 'Todos os campos são obrigatorios' });
@@ -15,6 +12,8 @@ const validateRegister = async (req, res, next) => {
   if(!user) {
     return res.status(404).json({ message: 'Usuario não encontrado' });
   }
+  
+  const checkPass = await bcrypt.compare(password, user.password)
 
   if(!checkPass) {
     return res.status(422).json({ message: 'Senha invalida' });
