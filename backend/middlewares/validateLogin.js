@@ -6,7 +6,7 @@ const validateRegister = async (req, res, next) => {
 
   const user = await User.findOne({ email: email })
 
-  const checkPass = await bcypt.compare(password, user.password)
+  const checkPass = await bcrypt.compare(password, user.password)
 
   if (!email || !password) {
     return res.status(422).json({ message: 'Todos os campos são obrigatorios' });
@@ -16,7 +16,7 @@ const validateRegister = async (req, res, next) => {
     return res.status(404).json({ message: 'Usuario não encontrado' });
   }
 
-  if(checkPass) {
+  if(!checkPass) {
     return res.status(422).json({ message: 'Senha invalida' });
   }
 

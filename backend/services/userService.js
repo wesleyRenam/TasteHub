@@ -32,7 +32,11 @@ const userService = {
       console.log(error)
       return {status: 500, msg: "Aconteceu um erro com o db"}
     }
-  }
+  },
+  user: async(id) => {
+    const user = await User.findById({ id: id }, '-password')
+    return {status:200, msg: user}
+  },
 }
 
 module.exports = userService
