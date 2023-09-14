@@ -10,6 +10,7 @@ module.exports = {
         'lexend': 'Lexend Deca, sans-serif',
         'montserrat': ['montserrat', 'sans-serif'],
         'lato': ['lato', 'sans-serif'],
+        'josefin': ['Josefin Sans', 'sans-serif'],
       },
     },
   },

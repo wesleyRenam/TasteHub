@@ -3,5 +3,13 @@ import App from './App.vue'
 import 'tailwindcss/tailwind.css';
 import './index.css'
 
+import { library } from '@fortawesome/fontawesome-svg-core'
 
-createApp(App).mount('#app')
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+import { faEye } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faEye)
+
+
+createApp(App).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
