@@ -22,13 +22,16 @@
           <button class='p-2 rounded-md bg-[#FFBD70] mt-5 hover:scale-105 w-full ease-in duration-300 font-josefin basis-5 mr-4' type="submit" v-on:click="submitForm">
               Entrar
           </button>
-          <button class='p-2 rounded-md bg-[#FFBD70] mt-5 hover:scale-105 w-full ease-in duration-300 font-josefin' type="submit" v-on:click="submitForm">
-            Cadastre-se
-          </button>
+          
+            <button class='p-2 rounded-md bg-[#FFBD70] mt-5 hover:scale-105 w-full ease-in duration-300 font-josefin' type="submit">
+              <router-link to='/register'>Cadastre-se</router-link>
+            </button>
+          
         </div>
       </div>
     </div>
   </div>
+  <router-view></router-view>
 </template>
 
 <script>

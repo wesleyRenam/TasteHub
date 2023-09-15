@@ -1,16 +1,15 @@
 <template>
-  <LoginComponent />
-  <RegisterComponent />
+  <router-view></router-view>
 </template> 
 
 <script>
-  import LoginComponent from './components/LoginComponent.vue'
-  import RegisterComponent from './components/RegisterComponent.vue'
+  // import LoginComponent from './components/LoginComponent.vue'
+  // import RegisterComponent from './components/RegisterComponent.vue'
   export default {
     name: 'App',
     components: {
-      LoginComponent,
-      RegisterComponent,
+      // LoginComponent,
+      // RegisterComponent,
     }
   }
 
