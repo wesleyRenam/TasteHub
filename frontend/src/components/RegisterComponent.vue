@@ -1,7 +1,9 @@
 <template>
-  <div class="bg-[#284B63] min-h-screen flex items-center justify-center flex-col">
-    <div class='items-center scale-[1.7]'>
-      <LogoComponent />    
+  <div class="bg-[#284B63] min-h-screen flex items-center justify-center min-w-screen flex-col">
+    <div class='items-center min-[600px]:scale-[1.5] md:scale-[1.7] xl:scale-[2.0]'>
+      <router-link to='/'>
+        <LogoComponent />    
+      </router-link>
       <div class="bg-white rounded-xl grid shadow-2xl p-5">
         <div class="flex">
           <form class="mb-1 mr-2">
@@ -17,23 +19,22 @@
             <input type="email" placeholder="Email" class="font-montserrat bg-stone-300 p-3 rounded-md w-full placeholder-gray-500 text-xs" v-model="email">
           </form>
         </div>
-        
         <form>
           <label for="password" class="block mb-1 font-lato text-base font-josefin">
             Senha
-          <div class="relative flex items-center">
-            <input type="password" placeholder="Senha" class="font-montserrat bg-stone-300 p-3 rounded-md w-full placeholder-gray-500 text-xs" v-model="password">
-            <font-awesome-icon icon="fa-eye" class="absolute right-3 text-gray-500 cursor-pointer" />
-          </div>
-        </label>
+            <div class="relative flex items-center">
+              <input :type="$store.state.typeField"  placeholder="Senha" class="font-montserrat bg-stone-300 p-3 rounded-md w-full placeholder-gray-500 text-xs" v-model="password">
+              <font-awesome-icon icon="fa-eye" v-on:click="showPass" class="absolute right-3 text-gray-500 cursor-pointer" />
+            </div>
+          </label>
 
         </form>
         <form>
           <label for="confirmpassword" class="block mb-1 font-lato text-base font-josefin">
             Confirme a Senha
             <div class="relative flex items-center">
-              <input type="password" placeholder="Senha" class="font-montserrat bg-stone-300 p-3  rounded-md w-full placeholder-gray-500 text-xs" v-model="confirmpassword">
-              <font-awesome-icon icon="fa-eye" class="absolute right-3 text-gray-500 cursor-pointer" />
+              <input :type="$store.state.typeField"  placeholder="Senha" class="font-montserrat bg-stone-300 p-3  rounded-md w-full placeholder-gray-500 text-xs" v-model="confirmpassword">
+              <font-awesome-icon icon="fa-eye" v-on:click="showPass" class="absolute right-3 text-gray-500 cursor-pointer" />
             </div>
           </label>
         </form>
@@ -74,6 +75,9 @@
           .catch(error => {
              this.$store.state.errorResponseApi = error.response.data
           });
+      },
+      showPass() {
+        this.$store.state.typeField === 'password' ?  this.$store.state.typeField = 'text' : this.$store.state.typeField = 'password'
       }
     },
     components: {

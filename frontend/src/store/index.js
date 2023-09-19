@@ -8,7 +8,8 @@ export default createStore({
     },
     responseApi: {
       msg:'',
-    }
+    },
+    typeField: 'password',
   },
   getters: {
   },
