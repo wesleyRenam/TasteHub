@@ -28,6 +28,25 @@ const recipesService = {
     console.log(err)
     return {status: 500, msg: "Erro ao buscar receitas"}
   }
+ },
+ deleteRecipe: async (id) => {
+  try {
+    await Recipes.deleteOne({ _id: id })
+    return {status: 204, msg: "Deletado com sucesso"}
+  } catch (err) {
+    console.log(err)
+    return {status: 500, msg: "Erro ao deletar receitas"}
+  }
+ },
+ updateRecipe: async (updatedRecipe, id) => {
+  try {
+    const recipe = await Recipes.findOneAndUpdate({_id: id}, updatedRecipe)
+    if(!recipe) return {status: 404, msg: 'Receita não encontrada'}
+    return {status: 200, msg: 'Update com sucesso'}
+  } catch (err) {
+    console.log(err)
+    return {status: 500, msg: "Erro ao atualizar receitas"}
+  }
  }
 }
 

@@ -12,6 +12,16 @@ const recipesController = {
   getRecipes: async (req, res) => {
     const recipeRes = await recipesService.getRecipes()
     return res.status(recipeRes.status).json(recipeRes.msg)
+  },
+  deleteRecipe: async (req, res) => {
+    const {  id } = req.params
+    const recipeRes = await recipesService.deleteRecipe(id)
+    return res.status(recipeRes.status).json(recipeRes.msg)
+  },
+  updateRecipe: async (req, res) => {
+    const {id} = req.params
+    const recipeRes = await recipesService.updateRecipe(req.body, id)
+    return res.status(recipeRes.status).json(recipeRes.msg)
   }
 }
 module.exports = recipesController
