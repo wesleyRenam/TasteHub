@@ -3,10 +3,10 @@ const express = require('express')
 const mongoose = require ('mongoose')
 const cors = require('cors');
 const userRoute = require('./routes/userRoute');
+const recipesRoute = require('./routes/recipesRoute');
 
 const app = express()
 app.use(express.json());
-
 app.use(cors());
 
 
@@ -15,6 +15,7 @@ app.get('/', (req, res) => {
   res.status(200).json({message:"Tudo certo!"})
 })
 app.use('/auth', userRoute)
+app.use('/recipes', recipesRoute)
 
 // Credenciais
 const dbUser = process.env.DB_USER

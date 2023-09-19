@@ -18,20 +18,19 @@
             </div>
           </label>
         </form>
-        <div class="flex">
-          <button class='p-2 rounded-md bg-[#FFBD70] mt-5 hover:scale-105 w-full ease-in duration-300 font-josefin basis-5 mr-4' type="submit" v-on:click="submitForm">
+        <p v-if='$store.state.errorResponseApi.message !== null' class="text-red-400 text-xs font-lato text-center w-full" >{{$store.state.errorResponseApi.message}}</p>
+        <div class="flex mt-2">
+          <button class='p-2 rounded-md bg-[#FFBD70] hover:scale-105 w-full ease-in duration-300 font-josefin basis-5 mr-4' type="submit" v-on:click="submitForm">
               Entrar
           </button>
-          
-            <button class='p-2 rounded-md bg-[#FFBD70] mt-5 hover:scale-105 w-full ease-in duration-300 font-josefin' type="submit">
-              <router-link to='/register'>Cadastre-se</router-link>
-            </button>
+          <button class='p-2 rounded-md bg-[#FFBD70] hover:scale-105 w-full ease-in duration-300 font-josefin' type="submit">
+              <router-link to='/register' v-on:click="clearState">Cadastre-se</router-link>
+          </button>
           
         </div>
       </div>
     </div>
   </div>
-  <router-view></router-view>
 </template>
 
 <script>
@@ -54,10 +53,14 @@
         axios.post('http://localhost:3000/auth/login', user)
           .then(res => {
             console.log(res.data)
+            localStorage.setItem('token', res.data)
           })
           .catch(error => {
-            console.log(error.response.data)
+            this.$store.state.errorResponseApi = error.response.data
           });
+      },
+      clearState() {
+        this.$store.state.errorResponseApi = ''
       }
     },
     components: {

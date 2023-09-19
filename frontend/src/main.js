@@ -9,10 +9,11 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import { faEye } from '@fortawesome/free-solid-svg-icons'
+import store from './store'
 
 library.add(faEye)
 
 
-createApp(App).component('font-awesome-icon', FontAwesomeIcon).use(router).mount('#app')
+createApp(App).use(store).component('font-awesome-icon', FontAwesomeIcon).use(router).mount('#app')
 
 
