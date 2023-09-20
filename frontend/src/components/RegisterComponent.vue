@@ -31,7 +31,6 @@
             Confirme a Senha
             <div class="relative flex items-center">
               <input :type="$store.state.typeField"  placeholder="Senha" class="font-montserrat bg-stone-300 p-3  rounded-md w-full placeholder-gray-500 text-xs" v-model="confirmpassword">
-              <font-awesome-icon icon="fa-eye" v-on:click="showPass" class="absolute right-3 text-gray-500 cursor-pointer" />
             </div>
           </label>
           <p v-if='$store.state.errorResponseApi.message !== null' class="text-red-400 text-xs font-lato text-center w-full" >{{$store.state.errorResponseApi.message}}</p>
