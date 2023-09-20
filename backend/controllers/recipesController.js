@@ -13,6 +13,11 @@ const recipesController = {
     const recipeRes = await recipesService.getRecipes()
     return res.status(recipeRes.status).json(recipeRes.msg)
   },
+  getById: async (req, res) => {
+    const {  id } = req.params
+    const recipeRes = await recipesService.getById(id)
+    return res.status(recipeRes.status).json(recipeRes.msg)
+  },
   deleteRecipe: async (req, res) => {
     const {  id } = req.params
     const recipeRes = await recipesService.deleteRecipe(id)

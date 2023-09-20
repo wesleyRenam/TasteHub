@@ -7,7 +7,9 @@ const authorizeUser = async (req, res, next) => {
     const decodedToken = jwt.verify(token, process.env.SECRET)
     const {id} = req.params
     const recipe = await Recipes.findOne({ _id: id })
-    if(decodedToken !== recipe.author.toString()) return res.status(402).json({message: 'Unauthorized user'})
+    const authorId = recipe.author.toString()
+    if(decodedToken !== authorId) return res.status(402).json({message: 'Unauthorized user'})
+    req.authorId = authorId;
     next()
   } catch (error) {
     console.log(error)

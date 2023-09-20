@@ -10,6 +10,7 @@ export default createStore({
       msg:'',
     },
     typeField: 'password',
+    
   },
   getters: {
   },

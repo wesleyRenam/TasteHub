@@ -54,6 +54,7 @@ export default {
         .then(res => {
           console.log(res.data)
           localStorage.setItem('token', res.data)
+          this.$router.push('/');
         })
         .catch(error => {
           this.$store.state.errorResponseApi = error.response.data
