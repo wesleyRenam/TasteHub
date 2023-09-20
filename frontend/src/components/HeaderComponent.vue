@@ -8,20 +8,24 @@
         <font-awesome-icon :icon="['fas', 'circle-user']"/>
         <div v-if="menu" class="absolute top-full left-0  sm:w-auto sm:left-auto sm:right-0 bg-[#34617f] rounded-xl mt-2 sm:mt-0">
           <div v-if="!local" class="flex flex-col my-7 mx-6">
-            <router-link to='/login' class="bg-[#FFBD70] text-black font-josefin rounded p-3 my-2 w-full text-xl">
-              Entrar
-            </router-link>
-            <router-link to='/register' class="bg-[#FFBD70] text-black font-josefin rounded p-3 m-2 w-full text-xl">
-              Cadastrar
-            </router-link>
+            <button class="bg-[#FFBD70] text-black font-josefin rounded p-3 my-1 text-xl whitespace-nowrap">
+              <router-link to='/login'>
+                Entrar
+              </router-link>
+            </button>
+            <button class="bg-[#FFBD70] text-black font-josefin rounded p-3 my-1 text-xl whitespace-nowrap">
+              <router-link to='/register'>
+                Cadastrar
+              </router-link>
+            </button>
           </div>
           <div v-else class="flex flex-col my-7 mx-6">
             <button class="bg-[#FFBD70] text-black font-josefin rounded p-3 my-1 text-xl whitespace-nowrap">
               Perfil
             </button>
-            <button class="bg-[#FFBD70] text-black font-josefin rounded p-3 my-1 text-xl whitespace-nowrap">
-              Minhas Receitas
-            </button>
+            <router-link to='/myrecipes' class="bg-[#FFBD70] text-black font-josefin rounded p-3 my-1 text-xl whitespace-nowrap">
+                Minhas Receitas
+            </router-link>
             <button class="bg-[#FFBD70] text-black font-josefin rounded p-3 my-1 text-xl whitespace-nowrap">
               Criar Receita
             </button>

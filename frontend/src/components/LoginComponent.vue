@@ -10,7 +10,7 @@
             Email
             <input type="email" placeholder="Email" class="font-montserrat bg-stone-300 p-3 rounded-md w-full placeholder-gray-500 text-xs" v-model="email">
           </label>
-          <label for="password" class="block mb-1 font-lato font-semibold text-2xl font-josefin">
+          <label for="password" class="block mb-1 font-semibold text-2xl font-josefin">
             Senha
             <div class="relative flex items-center">
               <input :type="$store.state.typeField" placeholder="Senha" class="font-montserrat bg-stone-300 p-3 rounded-md w-full placeholder-gray-500 text-xs" v-model="password">
