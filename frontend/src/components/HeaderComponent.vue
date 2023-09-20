@@ -1,13 +1,12 @@
 <template>
   <div>
-    <header class="flex p-3 py-5 shadow w-full max-h-15 justify-around items-center relative">
+    <header class="flex bg-[#284B63] p-3 py-5 shadow w-full max-h-13 justify-around items-center relative">
       <router-link to="/">
-        <LogoComponent class="w-28"/>
+        <LogoComponent class="w-48"/>
       </router-link>
-      <!-- Botão de ativação do menu dropdown -->
-      <div class="relative inline-block text-5xl text-[#FFBD70] cursor-pointer" v-on:click="toggleMenu">
+      <div class="relative inline-block text-8xl text-[#FFBD70] cursor-pointer" v-on:click="toggleMenu">
         <font-awesome-icon :icon="['fas', 'circle-user']"/>
-        <div v-if="menu" class="absolute top-full left-0  sm:w-auto sm:left-auto sm:right-0 bg-[#284B63] rounded-xl mt-2 sm:mt-0">
+        <div v-if="menu" class="absolute top-full left-0  sm:w-auto sm:left-auto sm:right-0 bg-[#34617f] rounded-xl mt-2 sm:mt-0">
           <div v-if="!local" class="flex flex-col my-7 mx-6">
             <router-link to='/login' class="bg-[#FFBD70] text-black font-josefin rounded p-3 my-2 w-full text-xl">
               Entrar

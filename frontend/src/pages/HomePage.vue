@@ -1,29 +1,29 @@
 <template>
   <div>
     <HeaderComponent />
-    <div class="flex flex-wrap w-screen justify-center">
-    <div v-if="isLoading">Loading</div>
-    <div v-for="recipe in recipes" v-else :key="recipe._id" >
-      <router-link :to="'/recipes/' + recipe._id">
-        <div class="max-w-md mx-auto bg-white rounded-xl overflow-hidden shadow-lg mx-1">
-          <img class="w-full h-48 object-cover" :src="recipe.image" alt="Imagem do Card">
-          <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">{{ recipe.title }}</div>
-            <p class="text-gray-700 text-base">{{ recipe.description }}</p>
+    <div class="bg-[#284B63] w-full grid lg:grid-cols-3 2xl:grid-cols-4 gap-4 p-4">
+      <div v-if="isLoading">Loading</div>
+      <div v-for="recipe in recipes" :key="recipe._id" class="" >
+        <router-link :to="'/recipes/' + recipe._id" >
+          <div class="max-w-md bg-white rounded-xl overflow-hidden shadow-lg">
+            <img class="w-full h-48 object-cover" :src="recipe.image" alt="Imagem do Card">
+            <div class="p-3">
+              <div class="font-bold text-xl mb-2">{{ recipe.title }}</div>
+              <p class="text-gray-700 text-base">{{ recipe.description }}</p>
+            </div>
+            <div class="p-3 flex ">
+              <span
+                class="bg-[#FFBD70] rounded-full px-3 py-1 text-sm font-semibold text-gray-700 inline-block mr-1"
+                v-for="tag in recipe.tags"
+                :key="tag"
+              >
+                {{ tag }}
+              </span>
+            </div>
           </div>
-          <div class="p-1 flex">
-            <span
-              class="bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 inline-block mr-1"
-              v-for="tag in recipe.tags"
-              :key="tag"
-            >
-              {{ tag }}
-            </span>
-          </div>
-        </div>
-      </router-link>
+        </router-link>
+      </div>
     </div>
-  </div>
   </div>
 </template>
 
