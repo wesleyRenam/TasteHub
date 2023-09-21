@@ -34,9 +34,24 @@ const userService = {
     }
   },
   user: async(id) => {
-    const user = await User.findById({ id: id }, '-password')
-    return {status:200, msg: user}
+    try {
+      const user = await User.findById({ id: id }, '-password')
+      return {status:200, msg: user}
+    } catch(error){
+      console.log(error)
+      return {status: 500, msg: "Aconteceu um erro com o db"}
+    }
   },
+
+  getAllUsers: async() => {
+    try {
+      const users = await User.find({});
+      return { status: 200, msg: users };
+    } catch (err) {
+      console.log(err);
+      return { status: 500, msg: "Erro ao buscar os usuarios" };
+    }
+  }
 }
 
 module.exports = userService

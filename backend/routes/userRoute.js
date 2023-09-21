@@ -9,5 +9,6 @@ const userRouter = express.Router();
 userRouter.post('/register',validateRegister, userController.createUser);
 userRouter.post('/login', validateLogin, userController.userLogin)
 userRouter.post('/user/:id', authorizeUser, userController.user)
+userRouter.get('/user', userController.getAllUsers)
 
 module.exports = userRouter;
