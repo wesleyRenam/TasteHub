@@ -6,12 +6,12 @@
             <form>
                 <div class="mb-4">
                     <label for="title" class="block font-semibold">Título</label>
-                    <input type="text" id="title" class="w-full p-2 border rounded" v-model="recipe.title">
+                    <input type="text" id="title" class="w-full p-2 border rounded" v-model="title">
                 </div>
 
                 <div class="mb-4">
                     <label for="description" class="block font-semibold">Descrição</label>
-                    <textarea id="description" class="w-full p-2 border rounded" v-model="recipe.description"></textarea>
+                    <textarea id="description" class="w-full p-2 border rounded" v-model="description"></textarea>
                 </div>
 
                 <div class="mb-4">
